@@ -1,0 +1,21 @@
+import pepita.*
+import comidas.*
+// import niveles.*
+import extras.*
+import wollok.game.*
+
+program PepitaGame {
+	game.title("Pepita")
+	game.height(10)
+	game.width(10)
+	game.boardGround("fondo2.jpg")
+
+  game.addVisual(silvestre)
+  game.addVisualCharacter(pepita)
+	// game.whenCollideDo(pepita, { silvestre => 1
+  //   pepita.image('pepita-gris.png') 1 
+  // }) 1
+	
+	game.start()
+
+}
