@@ -7,6 +7,8 @@ import silvestre.*
 import nivel1.*
 
 
+
+
 program PepitaGame {
 	game.title("Pepita")
 	game.height(10)
@@ -15,7 +17,7 @@ program PepitaGame {
 	game.addVisual(silvestre)
   game.addVisual(manzana)
   game.addVisual(pepita)
- 
+  // game.addVisual(gameOver) 
 	game.start()
 	nivel1.init()
 }

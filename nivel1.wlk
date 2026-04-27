@@ -22,6 +22,9 @@ object nivel1 {
         // game.onCollideDo(manzana, { alguien => alguien.comer(manzana) })
         game.onCollideDo(silvestre, { alguien => alguien.morir() })
         game.onTick(3000, "gravedad", { pepita.mover(abajo) })
+        pepita.estaMuerta()
+
+      
         
         game.addVisual(silvestre)
         game.addVisual(pepita)

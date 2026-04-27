@@ -21,6 +21,7 @@ object pepita {
 	 method text() = "\n\n\n\n" + self.energia()
 
 	var energia = 100
+	var viva = true   
 
 	method comer(comida) {
 		energia = energia + comida.energiaQueOtorga()
@@ -35,7 +36,11 @@ object pepita {
 	}
 
 	method volar(kms) {
-		energia = energia - 10 - kms 
+		energia = energia - kms
+		if(energia <= 0) {
+			self.morir()
+		}
+			
 	}
 	
 	method energia() {
@@ -47,11 +52,18 @@ object pepita {
     energia = 100
 }
 	method mover (direccion) {
+		if (viva) {
+		self.volar(1)
 		direccion.mover(self)
 	} 
-
+	}
 	method morir() {
-		
+		energia = 0
+		viva = false 
+	}
+
+	method estaMuerta() {
+		return !viva
 	}
 }
 
