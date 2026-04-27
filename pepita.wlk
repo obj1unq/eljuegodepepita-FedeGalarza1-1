@@ -1,4 +1,7 @@
 import wollok.game.*
+import silvestre.*
+import comidas.*
+
 
 object pepita {
 	var property position = game.at(0, 3) 
@@ -15,10 +18,20 @@ object pepita {
 	 	}
    } 
 
+	 method text() = "\n\n\n\n" + self.energia()
+
 	var energia = 100
 
 	method comer(comida) {
 		energia = energia + comida.energiaQueOtorga()
+	}
+
+	method comerAca (comida) {
+		if (self.position() == comida.position()) {
+		self.comer(comida)
+		comida.desaparecer()
+	}
+
 	}
 
 	method volar(kms) {
@@ -29,21 +42,19 @@ object pepita {
 		return energia
 	}
 
+	method init() {
+    position = game.at(0, 3)
+    energia = 100
 }
-object silvestre {
+	method mover (direccion) {
+		direccion.mover(self)
+	} 
 
-	method position () = game.at(self.positionAtravezDe(), 0)
-
-	method positionAtravezDe () { 
-		if (pepita.position().x() < 3) {
-			 return 3
-		} else {
-			return pepita.position().x()
-		}
-	}	
-
-	method image() {
-		return 'silvestre.png'		
+	method morir() {
+		
 	}
-	} 	
+}
+
+
+	
 
