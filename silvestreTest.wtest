@@ -1,0 +1,17 @@
+import silvestre.*
+import pepita.*
+import wollok.game.*
+
+describe "Tests de Silvestre" { 
+
+ test "Silvestre persigue a pepita" {
+  pepita.position(game.at(7, 3))
+  assert.equals(7, silvestre.position().x())
+ }
+
+ test "Silvestre no puede ir menos del 3 casillero" {
+  pepita.position(game.at(1, 3))
+  assert.equals(3, silvestre.position().x())
+ }
+
+}

@@ -1,0 +1,38 @@
+import direcciones.*
+import pepita.*
+import wollok.game.*
+
+describe "Tests de Movimiento y Direcciones" {
+
+ test "La dirección arriba aumenta la y" {
+  const fotoActual = pepita.position()
+  arriba.mover(pepita)
+  assert.equals(fotoActual.up(1), pepita.position())
+ }
+
+ test "La dirección abajo diminuye la y" {
+  const fotoActual = pepita.position()
+  abajo.mover(pepita)
+  assert.equals(fotoActual.down(1), pepita.position())
+ }
+
+ test "La dirección derecha aumenta la x" {
+  const fotoActual = pepita.position()
+  derecha.mover(pepita)
+  assert.equals(fotoActual.right(1), pepita.position())
+ }
+ 
+ test "La direccion izquierda disminuye la x siempre que puede" {
+  pepita.position(game.at(5, 3))
+  izquierda.mover(pepita)
+  assert.equals(game.at(4,3), pepita.position())
+ }
+
+ test "la direccion izquierda no permite salir del tablero" {
+ // Pepita ya está en x=0, al intentar mover a la izquierda debería quedarse ahí
+  izquierda.mover(pepita)
+  assert.equals(0, pepita.position().x())
+ }
+
+   
+}
