@@ -10,15 +10,15 @@ import nivel1.*
 
 
 program PepitaGame {
-	game.title("Pepita")
-	game.height(10)
-	game.width(10)
-	game.boardGround("fondo2.jpg")
-	game.addVisual(silvestre)
+ game.title("Pepita")
+ game.height(10)
+ game.width(10)
+ game.boardGround("fondo2.jpg")
+ game.addVisual(silvestre)
   game.addVisual(manzana)
   game.addVisual(pepita)
   // game.addVisual(gameOver) 
-	game.start()
-	nivel1.init()
+ game.start()
+ nivel1.init()
 }
 

@@ -1,0 +1,16 @@
+import wollok.game.*
+import pepita.*
+import comidas.*
+
+describe "Tests de comida" {
+	test "la manza da energia a pepita" {
+		pepita.comer(manzana)
+		assert.equals(105, pepita.energia())
+}
+
+	test "reseteo de manzana" {
+		manzana.desaparecer() // 
+		manzana.init()        // 
+		assert.notThat(manzana.fueComida())
+	}
+}

@@ -1,8 +1,9 @@
 import pepita.*
 import comidas.*
+import direcciones.*
+import wollok.game.*
 
 describe "Tests de Pepita" {
-
 
 	test "Al comer pepita aumenta su energia" {
 		pepita.comer(manzana)
@@ -13,8 +14,27 @@ describe "Tests de Pepita" {
 		pepita.volar(1)
 		assert.equals(99, pepita.energia())
 	}
+  
+  test "Al volar terminar la energia de pepita se muere" {
+    pepita.volar(100)
+    assert.that(pepita.estaMuerta()) // el that verifica condicion   
+  }
 
+  test "Al morir, pepita ya no puede moverse (su posición no cambia)" {
+    pepita.morir() // Matamos a Pepita: pepita.morir().
+    const fotoActual = pepita.position() // Sacamos una foto de dónde está ahora: const posicionInicial = pepita.position().
+    pepita.mover(arriba) // Intentamos moverla: pepita.mover(arriba).
+    assert.equals(fotoActual, pepita.position()) // Comparamos la "foto" contra su estado actual: assert.equals(posicionInicial, pepita.position()).
+  } 
 
-
+	test "Al aplicar Init se resetea los valores de pepita" {
+	  pepita.position(game.at(4, 3))
+    pepita.volar(50)
+		pepita.morir()
+		pepita.init()
+		assert.equals(100, pepita.energia())
+    assert.equals(game.at(0, 3), pepita.position())
+    assert.notThat(pepita.estaMuerta()) //
+	}
 }
 
