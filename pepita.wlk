@@ -18,7 +18,12 @@ object pepita {
 	 	}
    } 
 
-	 method text() = "\n\n\n\n" + self.energia()
+	method text() {
+	if (self.estaMuerta()) {
+		return "Oh estoy muerta 💀"
+	}
+	return "\n\n\n\n" + energia
+}
 
 	var energia = 100
 	var viva = true   
@@ -50,6 +55,7 @@ object pepita {
 	method init() {
     position = game.at(0, 3)
     energia = 100
+		viva = true
 }
 	method mover (direccion) {
 		if (viva) {
@@ -65,6 +71,7 @@ object pepita {
 	method estaMuerta() {
 		return !viva
 	}
+
 }
 
 
